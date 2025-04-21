@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JADWELNI — App Preview</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #6a00f4, #00c2ff, #00e37a);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: white;
+      text-align: center;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      padding: 60px 20px 40px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: 0 auto 2em;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 80px;
+      padding: 40px 0;
+    }
+
+    .gallery img {
+      width: auto;
+      max-width: 95vw;
+      height: 90vh;
+      object-fit: contain;
+      border-radius: 28px;
+      box-shadow: 0 32px 64px rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.04);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.01);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .gallery img {
+        height: auto;
+        max-height: 90vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to JADWELNI 👋</h1>
+    <p>Explore our app preview — each screen helps you discover trending places, avoid crowds, and stay connected!</p>
+  </header>
+
+  <div class="gallery">
+    <img src="images/main-view.png" alt="Login and Signup" onclick="openFull(this.src)" />
+    <img src="images/signup-view.png" alt="Signup" onclick="openFull(this.src)" />
+    <img src="images/login-view.png" alt="Login" onclick="openFull(this.src)" />
+    <img src="images/home-screen.png" alt="Home Screen" onclick="openFull(this.src)" />
+    <img src="images/crowd-map.png" alt="Crowd Map" onclick="openFull(this.src)" />
+    <img src="images/booking-view.png" alt="Booking" onclick="openFull(this.src)" />
+    <img src="images/friend-activity.png" alt="Friends Activity" onclick="openFull(this.src)" /> 
+  </div>
+
+  <script>
+    function openFull(src) {
+      const win = window.open();
+      win.document.write(`<img src="${src}" style="width:100vw;height:100vh;object-fit:contain;margin:0;" />`);
+    }
+  </script>
+
+</body>
+</html>
