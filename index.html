@@ -3,126 +3,211 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JADWELNI — App Preview</title>
+  <title>Welcome to JADWELNI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
+      font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, #6a00f4, #00c2ff, #00e37a);
       background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
+      animation: shiftBG 15s ease infinite;
       color: white;
-      text-align: center;
+      scroll-behavior: smooth;
     }
 
-    @keyframes gradientShift {
+    @keyframes shiftBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
     header {
-      padding: 60px 20px 40px;
+      background: #000;
+      padding: 100px 20px 80px;
+      text-align: center;
     }
 
-    h1 {
+    header h1 {
       font-size: 3em;
-      margin-bottom: 0.3em;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    header p {
+      font-size: 1.3em;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .nav-buttons a {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 14px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .nav-buttons a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
     }
 
     p {
       font-size: 1.2em;
-      max-width: 700px;
-      margin: 0 auto 2em;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      padding-top: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: scale(1.05);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.4em;
     }
 
     .gallery {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 80px;
-      padding: 40px 0;
+      overflow-x: scroll;
+      gap: 30px;
+      padding: 30px 0;
+      scroll-snap-type: x mandatory;
     }
 
     .gallery img {
-      width: auto;
-      max-width: 95vw;
-      height: 90vh;
-      object-fit: contain;
-      border-radius: 28px;
-      box-shadow: 0 32px 64px rgba(0, 0, 0, 0.3);
-      background: rgba(255, 255, 255, 0.04);
+      height: 85vh;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      scroll-snap-align: center;
       cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .gallery img:hover {
-      transform: scale(1.01);
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
-    }
-
-    .footer {
-      margin-top: 60px;
-      padding: 40px 20px;
-      font-size: 1.1em;
-    }
-
-    .social-links {
-      margin-top: 20px;
-      font-size: 1.1em;
-    }
-
-    .social-links a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .social-links a:hover {
-      text-decoration: underline;
+      transform: scale(1.02);
     }
 
     @media (max-width: 768px) {
       .gallery img {
         height: auto;
-        max-height: 90vh;
+        width: 90vw;
       }
     }
   </style>
 </head>
+
 <body>
 
+  <!-- Black Top Hero -->
   <header>
     <h1>Welcome to JADWELNI 👋</h1>
-    <p>Explore our app preview — each screen helps you discover trending places, avoid crowds, and stay connected!</p>
+    <p>The smartest way to discover Dubai’s 🔥 trending spots, avoid 🚫 crowded places, and connect with your world 🌍 — all from your phone.</p>
+    <div class="nav-buttons">
+      <a href="#what">👇 What is this app?</a>
+      <a href="#features">👇 Explore Features</a>
+      <a href="#preview">👇 See the App Preview</a>
+    </div>
+    
   </header>
 
-  <div class="gallery">
-    <img src="images/main-view.png" alt="Login and Signup" onclick="openFull(this.src)" />
-    <img src="images/signup-view.png" alt="Signup" onclick="openFull(this.src)" />
-    <img src="images/login-view.png" alt="Login" onclick="openFull(this.src)" />
-    <img src="images/home-screen.png" alt="Home Screen" onclick="openFull(this.src)" />
-    <img src="images/crowd-map.png" alt="Crowd Map" onclick="openFull(this.src)" />
-    <img src="images/booking-view.png" alt="Booking" onclick="openFull(this.src)" />
-    <img src="images/friend-activity.png" alt="Friends Activity" onclick="openFull(this.src)" /> 
-  </div>
+  <!-- What is this App -->
+  <section id="what">
+    <h2>🧠 What is this app?</h2>
+    <p><strong>Jadwelni (جدولني)</strong> is your all-in-one Dubai companion. It helps you find 🔥 trending places, dodge 🚫 overcrowded areas, and connect 👥 with your friends. Whether you want to chill, explore, or plan — we got you covered with smart tech, AI, and crowd data.</p>
+  </section>
 
-  <div class="footer">
-    <p><strong>📲 Available soon on the App Store!</strong></p>
-    <div class="social-links">
-      Follow us: 
-      <a href="https://www.tiktok.com/@jadwelni_official" target="_blank">TikTok</a> | 
-      <a href="https://www.instagram.com/jadwelni_official" target="_blank">Instagram</a>
+  <!-- Features -->
+  <section id="features">
+    <h2>🚀 Explore Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>📍 Live Crowd Maps</h3>
+        <p>Instant color-coded views of how crowded places are.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🔥 Trendy Spots</h3>
+        <p>See what’s popping off in Dubai in real-time.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📆 Smart Booking</h3>
+        <p>Book restaurants, events & more in seconds. Early booking for premium users.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🤖 AI Recommendations</h3>
+        <p>Get customized spot suggestions based on your vibe & activity.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🧭 AR Navigation</h3>
+        <p>Use AR to guide you right to the place — just lift your phone and follow the magic.</p>
+      </div>
+      <div class="feature-card">
+        <h3>👥 Friends Feed</h3>
+        <p>Check out where your friends are hanging out and explore together.</p>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <script>
-    function openFull(src) {
-      const win = window.open();
-      win.document.write(`<img src="${src}" style="width:100vw;height:100vh;object-fit:contain;margin:0;" />`);
-    }
-  </script>
+  <!-- App Preview -->
+  <section id="preview">
+    <h2>📱 See the App Preview</h2>
+    <div class="gallery">
+      <img src="images/main-view.png" alt="Login View">
+      <img src="images/signup-view.png" alt="Signup">
+      <img src="images/login-view.png" alt="Login">
+      <img src="images/home-screen.png" alt="Home">
+      <img src="images/crowd-map.png" alt="Crowd Map">
+      <img src="images/booking-view.png" alt="Booking">
+      <img src="images/friend-activity.png" alt="Friend Activity">
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 60px 20px; font-size: 1.2em; background: #000; color: white;">
+    <p><strong>📲 Coming to the App Store soon!</strong></p>
+    <p>Follow us for updates, sneak peeks, and behind-the-scenes content:</p>
+    <div style="margin-top: 16px;">
+      <a href="https://www.instagram.com/jadwelni_official" target="_blank" style="color: white; margin: 0 12px; font-weight: bold; text-decoration: none;">📸 Instagram</a>
+      |
+      <a href="https://www.tiktok.com/@jadwalni" target="_blank" style="color: white; margin: 0 12px; font-weight: bold; text-decoration: none;">🎥 TikTok</a>
+    </div>
+  </footer>
 
 </body>
 </html>
