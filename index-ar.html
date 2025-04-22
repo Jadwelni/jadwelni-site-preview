@@ -14,31 +14,27 @@
       background: rgba(255, 255, 255, 0.1);
       padding: 8px 14px;
       border-radius: 40px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
       font-size: 1.1em;
       color: white;
       font-weight: bold;
       backdrop-filter: blur(6px);
       z-index: 999;
-      transition: background 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
     }
 
-    .language-toggle:hover {
-      background: rgba(255, 255, 255, 0.2);
+    .language-toggle span {
+      pointer-events: none;
     }
 
     .language-toggle select {
-      background: transparent;
-      border: none;
-      color: white;
-      font-weight: bold;
-      font-family: 'Inter', sans-serif;
-      font-size: 1em;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
       cursor: pointer;
-      appearance: none;
-      outline: none;
     }
 
     .language-toggle option {
@@ -183,80 +179,82 @@
   }
 </script>
 
-  <header>
-    <h1>أهلًا بك في جدولني 👋</h1>
-    <p>أسهل طريقة لاكتشاف أماكن دبي الرائجة 🔥، تجنّب الزحمة 🚫، وتبقى متصل مع عالمك 🌍 — من موبايلك.</p>
-    <div class="nav-buttons">
-      <a href="#what">👇 ما هو التطبيق؟</a>
-      <a href="#features">👇 استكشف الميزات</a>
-      <a href="#preview">👇 شاهد المعاينة</a>
-    </div>
-    <div class="language-toggle">
-      🌐
-      <select onchange="switchLanguage(this.value)">
-        <option value="index-ar.html">🇦🇪 AR</option>
-        <option value="index.html">🇬🇧 EN</option>
-      </select>
-    </div>
-  </header>
+<header>
+  <h1>أهلًا بك في جدولني 👋</h1>
+  <p>أسهل طريقة لاكتشاف أماكن دبي الرائجة 🔥، تجنّب الزحمة 🚫، وتبقى متصل مع عالمك 🌍 — من موبايلك.</p>
+  <div class="nav-buttons">
+    <a href="#what">👇 ما هو التطبيق؟</a>
+    <a href="#features">👇 استكشف الميزات</a>
+    <a href="#preview">👇 شاهد المعاينة</a>
+  </div>
 
-  <section id="what">
-    <h2>🧠 ما هو هذا التطبيق؟</h2>
-    <p><strong>جدولني</strong> هو رفيقك الذكي في دبي. يساعدك تكتشف الأماكن الرائجة 🔥، تتجنب الزحمة 🚫، وتعرف وين أصدقائك. سواء تبغى تسترخي أو تخطط أو تستكشف — كل شي عندنا مدعوم بالذكاء الاصطناعي وبيانات الزحمة.</p>
-  </section>
+  <!-- Language Toggle Button -->
+  <div class="language-toggle">
+    <span>🌐 Change language here</span>
+    <select onchange="switchLanguage(this.value)">
+      <option value="index-ar.html">🇦🇪 AR</option>
+      <option value="index.html">🇬🇧 EN</option>
+    </select>
+  </div>
+</header>
 
-  <section id="features">
-    <h2>🚀 استكشف الميزات</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3>📍 خرائط الزحمة الحية</h3>
-        <p>عرض فوري بألوان توضح مدى الزحمة في الأماكن.</p>
-      </div>
-      <div class="feature-card">
-        <h3>🔥 الأماكن الرائجة</h3>
-        <p>اعرف وين الأماكن اللي مولعة في دبي في الوقت الفعلي.</p>
-      </div>
-      <div class="feature-card">
-        <h3>📆 الحجز الذكي</h3>
-        <p>احجز مطاعم، فعاليات والمزيد بثواني. وحجوزات مبكرة للمشتركين بريميوم.</p>
-      </div>
-      <div class="feature-card">
-        <h3>🤖 توصيات بالذكاء الاصطناعي</h3>
-        <p>اقتراحات شخصية حسب مزاجك ونشاطك.</p>
-      </div>
-      <div class="feature-card">
-        <h3>🧭 التنقل بالواقع المعزز</h3>
-        <p>ارفع جوالك وخلي AR يوصلك للمكان بالضبط.</p>
-      </div>
-      <div class="feature-card">
-        <h3>👥 نشاط الأصدقاء</h3>
-        <p>شوف وين أصدقائك رايحين واستكشفوا سوا.</p>
-      </div>
-    </div>
-  </section>
+<section id="what">
+  <h2>🧠 ما هو هذا التطبيق؟</h2>
+  <p><strong>جدولني</strong> هو رفيقك الذكي في دبي. يساعدك تكتشف الأماكن الرائجة 🔥، تتجنب الزحمة 🚫، وتعرف وين أصدقائك. سواء تبغى تسترخي أو تخطط أو تستكشف — كل شي عندنا مدعوم بالذكاء الاصطناعي وبيانات الزحمة.</p>
+</section>
 
-  <section id="preview">
-    <h2>📱 شاهد معاينة التطبيق</h2>
-    <div class="gallery">
-      <img src="images/main-view.png" alt="الواجهة الرئيسية">
-      <img src="images/signup-view.png" alt="التسجيل">
-      <img src="images/login-view.png" alt="تسجيل الدخول">
-      <img src="images/home-screen.png" alt="الشاشة الرئيسية">
-      <img src="images/crowd-map.png" alt="خريطة الزحمة">
-      <img src="images/booking-view.png" alt="الحجوزات">
-      <img src="images/friend-activity.png" alt="نشاط الأصدقاء">
+<section id="features">
+  <h2>🚀 استكشف الميزات</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <h3>📍 خرائط الزحمة الحية</h3>
+      <p>عرض فوري بألوان توضح مدى الزحمة في الأماكن.</p>
     </div>
-  </section>
+    <div class="feature-card">
+      <h3>🔥 الأماكن الرائجة</h3>
+      <p>اعرف وين الأماكن اللي مولعة في دبي في الوقت الفعلي.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📆 الحجز الذكي</h3>
+      <p>احجز مطاعم، فعاليات والمزيد بثواني. وحجوزات مبكرة للمشتركين بريميوم.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🤖 توصيات بالذكاء الاصطناعي</h3>
+      <p>اقتراحات شخصية حسب مزاجك ونشاطك.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🧭 التنقل بالواقع المعزز</h3>
+      <p>ارفع جوالك وخلي AR يوصلك للمكان بالضبط.</p>
+    </div>
+    <div class="feature-card">
+      <h3>👥 نشاط الأصدقاء</h3>
+      <p>شوف وين أصدقائك رايحين واستكشفوا سوا.</p>
+    </div>
+  </div>
+</section>
 
-  <footer style="text-align: center; padding: 60px 20px; font-size: 1.2em; background: #000; color: white;">
-    <p><strong>📲 قريبًا على App Store!</strong></p>
-    <p>تابعنا للمزيد من التحديثات، النظرات الحصرية، وكواليس التطوير:</p>
-    <div style="margin-top: 16px;">
-      <a href="https://www.instagram.com/jadwelni_official" target="_blank" style="color: white; margin: 0 12px; font-weight: bold; text-decoration: none;">📸 إنستجرام</a>
-      |
-      <a href="https://www.tiktok.com/@jadwalni" target="_blank" style="color: white; margin: 0 12px; font-weight: bold; text-decoration: none;">🎥 تيك توك</a>
-    </div>
-  </footer>
+<section id="preview">
+  <h2>📱 شاهد معاينة التطبيق</h2>
+  <div class="gallery">
+    <img src="images/main-view.png" alt="الواجهة الرئيسية">
+    <img src="images/signup-view.png" alt="التسجيل">
+    <img src="images/login-view.png" alt="تسجيل الدخول">
+    <img src="images/home-screen.png" alt="الشاشة الرئيسية">
+    <img src="images/crowd-map.png" alt="خريطة الزحمة">
+    <img src="images/booking-view.png" alt="الحجوزات">
+    <img src="images/friend-activity.png" alt="نشاط الأصدقاء">
+  </div>
+</section>
+
+<footer style="text-align: center; padding: 60px 20px; font-size: 1.2em; background: #000; color: white;">
+  <p><strong>📲 قريبًا على App Store!</strong></p>
+  <p>تابعنا للمزيد من التحديثات، النظرات الحصرية، وكواليس التطوير:</p>
+  <div style="margin-top: 16px;">
+    <a href="https://www.instagram.com/jadwelni_official" target="_blank" style="color: white; margin: 0 12px; font-weight: bold; text-decoration: none;">📸 إنستجرام</a>
+    |
+    <a href="https://www.tiktok.com/@jadwalni" target="_blank" style="color: white; margin: 0 12px; font-weight: bold; text-decoration: none;">🎥 تيك توك</a>
+  </div>
+</footer>
 
 </body>
 </html>

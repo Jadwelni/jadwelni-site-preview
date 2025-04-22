@@ -8,42 +8,50 @@
   
   <style>
     .language-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 8px 14px;
-  border-radius: 40px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 1.1em;
-  color: white;
-  font-weight: bold;
-  backdrop-filter: blur(6px);
-  z-index: 999;
-  transition: background 0.3s ease;
-}
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 14px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.1em;
+      color: white;
+      font-weight: bold;
+      backdrop-filter: blur(6px);
+      z-index: 999;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
 
-.language-toggle:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
+    .language-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
 
-.language-toggle select {
-  background: transparent;
-  border: none;
-  color: white;
-  font-weight: bold;
-  font-family: 'Inter', sans-serif;
-  font-size: 1em;
-  cursor: pointer;
-  appearance: none;
-  outline: none;
-}
+    .language-toggle select {
+      background: transparent;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-family: 'Inter', sans-serif;
+      font-size: 1em;
+      cursor: pointer;
+      appearance: none;
+      outline: none;
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 2;
+    }
 
-.language-toggle option {
-  color: black;
-}
+    .language-toggle option {
+      color: black;
+    }
 
     body {
       margin: 0;
@@ -182,11 +190,6 @@
 
   <!-- Black Top Hero -->
   <header>
-    <script>
-      function switchLanguage(value) {
-        window.location.href = value;
-      }
-    </script>
     <h1>Welcome to JADWELNI 👋</h1>
     <p>The smartest way to discover Dubai’s 🔥 trending spots, avoid 🚫 crowded places, and connect with your world 🌍 — all from your phone.</p>
     <div class="nav-buttons">
@@ -194,15 +197,15 @@
       <a href="#features">👇 Explore Features</a>
       <a href="#preview">👇 See the App Preview</a>
     </div>
+
+    <!-- 🌐 Language Toggle -->
     <div class="language-toggle">
-      🌐
-      <select onchange="switchLanguage(this.value)">
+      🌐 <span style="font-size: 0.9em;">غيّر اللغة من هنا</span>
+      <select id="lang-select" onchange="switchLanguage(this.value)">
         <option value="index.html">🇬🇧 EN</option>
         <option value="index-ar.html">🇦🇪 AR</option>
       </select>
     </div>
-    
-    
   </header>
 
   <!-- What is this App -->
@@ -255,6 +258,7 @@
       <img src="images/friend-activity.png" alt="Friend Activity">
     </div>
   </section>
+
   <!-- Footer -->
   <footer style="text-align: center; padding: 60px 20px; font-size: 1.2em; background: #000; color: white;">
     <p><strong>📲 Coming to the App Store soon!</strong></p>
@@ -265,6 +269,5 @@
       <a href="https://www.tiktok.com/@jadwalni" target="_blank" style="color: white; margin: 0 12px; font-weight: bold; text-decoration: none;">🎥 TikTok</a>
     </div>
   </footer>
-
 </body>
-</html>a
+</html>
