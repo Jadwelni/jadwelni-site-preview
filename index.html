@@ -4,37 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Welcome to JADWELNI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
   <style>
+    :root {
+      --primary-gradient: linear-gradient(135deg, #6a00f4, #00c2ff, #00e37a);
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --hover-bg: rgba(255, 255, 255, 0.15);
+      --text-color: #ffffff;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--primary-gradient);
+      background-size: 400% 400%;
+      animation: shiftBG 15s ease infinite;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
     .language-toggle {
-      position: absolute;
+      position: fixed;
       top: 20px;
       right: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 8px 14px;
+      background: var(--card-bg);
+      padding: 10px 16px;
       border-radius: 40px;
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: 1.1em;
-      color: white;
-      font-weight: bold;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(10px);
       z-index: 999;
-      transition: background 0.3s ease;
+      transition: var(--transition);
       cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
 
     .language-toggle:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: var(--hover-bg);
+      transform: translateY(-2px);
     }
 
     .language-toggle select {
       background: transparent;
       border: none;
-      color: white;
-      font-weight: bold;
+      color: var(--text-color);
+      font-weight: 600;
       font-family: 'Inter', sans-serif;
       font-size: 1em;
       cursor: pointer;
@@ -53,38 +79,42 @@
       color: black;
     }
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #6a00f4, #00c2ff, #00e37a);
-      background-size: 400% 400%;
-      animation: shiftBG 15s ease infinite;
-      color: white;
-      scroll-behavior: smooth;
-    }
-
-    @keyframes shiftBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
     header {
-      background: #000;
-      padding: 100px 20px 80px;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 120px 20px 100px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--primary-gradient);
+      opacity: 0.1;
+      z-index: 0;
     }
 
     header h1 {
-      font-size: 3em;
+      font-size: 3.5em;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
 
     header p {
-      font-size: 1.3em;
+      font-size: 1.4em;
       max-width: 800px;
-      margin: 0 auto 30px;
+      margin: 0 auto 40px;
+      position: relative;
+      z-index: 1;
+      opacity: 0.9;
     }
 
     .nav-buttons {
@@ -93,62 +123,83 @@
       gap: 20px;
       flex-wrap: wrap;
       margin-top: 40px;
+      position: relative;
+      z-index: 1;
     }
 
     .nav-buttons a {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 14px 24px;
+      background: var(--card-bg);
+      padding: 16px 28px;
       border-radius: 30px;
-      font-weight: bold;
-      color: white;
+      font-weight: 600;
+      color: var(--text-color);
       text-decoration: none;
-      transition: background 0.3s ease;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .nav-buttons a:hover {
-      background: rgba(255, 255, 255, 0.3);
+      background: var(--hover-bg);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     }
 
     section {
-      padding: 80px 20px;
+      padding: 100px 20px;
       text-align: center;
+      position: relative;
     }
 
     h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
     }
 
-    p {
-      font-size: 1.2em;
-      max-width: 800px;
-      margin: 0 auto 30px;
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--primary-gradient);
+      border-radius: 2px;
     }
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 40px;
-      padding-top: 40px;
-      max-width: 1000px;
+      padding-top: 60px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
     .feature-card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
+      background: var(--card-bg);
+      padding: 32px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .feature-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
     .feature-card h3 {
-      margin: 0 0 12px;
-      font-size: 1.4em;
+      margin: 0 0 16px;
+      font-size: 1.5em;
+      font-weight: 600;
     }
 
     .gallery {
@@ -157,6 +208,16 @@
       gap: 30px;
       padding: 30px 0;
       scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+      margin: 0 auto;
+      max-width: 1400px;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .gallery::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
     }
 
     .gallery img {
@@ -165,18 +226,104 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.4);
       scroll-snap-align: center;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      object-fit: cover;
+      aspect-ratio: 9/16;
     }
 
     .gallery img:hover {
       transform: scale(1.02);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .gallery-container {
+      position: relative;
+      padding: 0 20px;
+      margin: 0 auto;
+      max-width: 1400px;
+    }
+
+    .gallery-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .gallery-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-indicator.active {
+      background: rgba(255, 255, 255, 0.8);
+      transform: scale(1.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 80px 20px;
+      font-size: 1.2em;
+      background: rgba(0, 0, 0, 0.9);
+      color: var(--text-color);
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--primary-gradient);
+    }
+
+    footer a {
+      color: var(--text-color);
+      margin: 0 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    footer a:hover {
+      opacity: 0.8;
+      transform: translateY(-2px);
     }
 
     @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+      
+      header p {
+        font-size: 1.2em;
+      }
+
       .gallery img {
         height: auto;
         width: 90vw;
       }
+
+      .gallery-container {
+        padding: 0 10px;
+      }
+    }
+
+    @keyframes shiftBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
   </style>
 </head>
@@ -191,7 +338,7 @@
   <!-- Black Top Hero -->
   <header>
     <h1>Welcome to JADWELNI 👋</h1>
-    <p>The smartest way to discover Dubai’s 🔥 trending spots, avoid 🚫 crowded places, and connect with your world 🌍 — all from your phone.</p>
+    <p>The smartest way to discover Dubai's 🔥 trending spots, avoid 🚫 crowded places, and connect with your world 🌍 — all from your phone.</p>
     <div class="nav-buttons">
       <a href="#what">👇 What is this app?</a>
       <a href="#features">👇 Explore Features</a>
@@ -224,7 +371,7 @@
       </div>
       <div class="feature-card">
         <h3>🔥 Trendy Spots</h3>
-        <p>See what’s popping off in Dubai in real-time.</p>
+        <p>See what's popping off in Dubai in real-time.</p>
       </div>
       <div class="feature-card">
         <h3>📆 Smart Booking</h3>
@@ -248,14 +395,25 @@
   <!-- App Preview -->
   <section id="preview">
     <h2>📱 See the App Preview</h2>
-    <div class="gallery">
-      <img src="images/main-view.png" alt="Login View">
-      <img src="images/signup-view.png" alt="Signup">
-      <img src="images/login-view.png" alt="Login">
-      <img src="images/home-screen.png" alt="Home">
-      <img src="images/crowd-map.png" alt="Crowd Map">
-      <img src="images/booking-view.png" alt="Booking">
-      <img src="images/friend-activity.png" alt="Friend Activity">
+    <div class="gallery-container">
+      <div class="gallery">
+        <img src="images/main-view.png" alt="Login View">
+        <img src="images/signup-view.png" alt="Signup">
+        <img src="images/login-view.png" alt="Login">
+        <img src="images/home-screen.png" alt="Home">
+        <img src="images/crowd-map.png" alt="Crowd Map">
+        <img src="images/booking-view.png" alt="Booking">
+        <img src="images/friend-activity.png" alt="Friend Activity">
+      </div>
+      <div class="gallery-indicators">
+        <div class="gallery-indicator active"></div>
+        <div class="gallery-indicator"></div>
+        <div class="gallery-indicator"></div>
+        <div class="gallery-indicator"></div>
+        <div class="gallery-indicator"></div>
+        <div class="gallery-indicator"></div>
+        <div class="gallery-indicator"></div>
+      </div>
     </div>
   </section>
 
